@@ -22,8 +22,8 @@ class ScrapeXPathSpider(scrapy.Spider):
 		#using ./span produces empty arrays
 		for quote in response.xpath(".//div[@class='quote']"):
 			yield {
-				'text': response.xpath(".//span[@class='text']/text()").extract(),
-				'author': response.xpath(".//small[@class='author']/text()").extract(),
+				'text': quote.xpath(".//span[@class='text']/text()").extract(),
+				'author': quote.xpath(".//small[@class='author']/text()").extract(),
 				
 			}
 		
